@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AIVideoViewer v2</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <main>
+    <h1>AIVideoViewer</h1>
+    <p class="subtitle">Local AI video analysis — Whisper + Qwen2.5-VL via Ollama</p>
+
+    <section id="upload-section">
+      <input type="file" id="file-input" accept="video/*">
+      <button id="upload-btn">Analyze video</button>
+    </section>
+
+    <section id="options-section">
+      <label>
+        <input type="checkbox" id="enable-context-checkbox">
+        Enable memory context per chunk (legacy/debug — tends to cause the model to repeat earlier chunks instead of describing new content)
+      </label>
+    </section>
+
+    <section id="reconnect-section">
+      <p class="hint">Closed the tab on a running job? Paste its job ID to reattach — the job keeps running server-side regardless.</p>
+      <div class="reconnect-row">
+        <input type="text" id="job-id-input" placeholder="job id">
+        <button id="reconnect-btn">Reconnect</button>
+      </div>
+      <p id="job-id-display" class="hint" hidden></p>
+    </section>
+
+    <section id="progress-section" hidden>
+      <div id="progress-bar-track">
+        <div id="progress-bar-fill"></div>
+      </div>
+      <p id="progress-label">Waiting...</p>
+    </section>
+
+    <section id="results-section">
+      <div id="chunk-log"></div>
+    </section>
+
+    <section id="summary-section" hidden>
+      <h2>Final summary</h2>
+      <p id="final-summary"></p>
+    </section>
+
+    <section id="chat-section" hidden>
+      <h2>Ask about this video</h2>
+      <div id="chat-log"></div>
+      <div class="chat-input-row">
+        <input type="text" id="chat-input" placeholder="e.g. what was the best moment?">
+        <button id="chat-send-btn">Ask</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

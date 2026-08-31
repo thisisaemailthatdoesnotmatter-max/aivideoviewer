@@ -1,0 +1,14 @@
+# Runtime data - not source code, generated per-run
+backend/uploads/
+backend/job_storage/
+backend/debug_output/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# OS
+.DS_Store
+Thumbs.db
